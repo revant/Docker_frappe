@@ -1,0 +1,14 @@
+version: '2'
+services:
+  frappe:
+    build: .
+    ports:
+     - "5000:5000"
+  mariadb:
+    image: "mariadb:10"
+    volumes:
+      - conf/mariadb-conf.d:/etc/mysql/conf.d
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - conf/redis.conf:/usr/local/etc/redis/redis.conf
