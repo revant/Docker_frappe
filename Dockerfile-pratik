@@ -18,7 +18,12 @@ RUN apt-get install -y rlwrap
 RUN curl https://deb.nodesource.com/node_6.x/pool/main/n/nodejs/nodejs_6.7.0-1nodesource1~xenial1_amd64.deb > node.deb \
  && dpkg -i node.deb \
  && rm node.deb
-
+# Install wkhtmltopdf
+curl https://raw.githubusercontent.com/frappe/wkhtmltopdf/master/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz > wkhtmltox.tar.xz \
+&& tar -xf wkhtmltox.tar.xz --directory /tmp \
+&& cp /tmp/wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
+&& chmod o+x /usr/local/bin/wkhtmltopdf
+&& rm wkhtmltox.tar.xz
 
  USER frappe
  WORKDIR /home/frappe
