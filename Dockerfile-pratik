@@ -21,8 +21,8 @@ RUN curl https://deb.nodesource.com/node_6.x/pool/main/n/nodejs/nodejs_6.7.0-1no
 # Install wkhtmltopdf
 RUN curl https://raw.githubusercontent.com/frappe/wkhtmltopdf/master/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz > wkhtmltox.tar.xz \
 && tar -xf wkhtmltox.tar.xz --directory /tmp \
-&& cp /tmp/wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
-&& chmod o+x /usr/local/bin/wkhtmltopdf
+&& cp /tmp/wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf \
+&& chmod o+x /usr/local/bin/wkhtmltopdf \
 && rm wkhtmltox.tar.xz
 
  USER frappe
